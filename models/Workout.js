@@ -11,10 +11,10 @@ const WorkoutSchema = new Schema({
         type: Number,
         default: 0
     },
-    totalDistance: {
-        type: Number,
-        default: 0
-    },
+    // totalDistance: {
+    //     type: Number,
+    //     default: 0
+    // },
     exercises: [
         {
             type: {

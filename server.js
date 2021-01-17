@@ -46,7 +46,6 @@ app.get("/exercise/:id", (req, res) => {
     );
 });
 
-
 app.get("/api/workouts", (req, res) => {
     db.Workout.find({})
         .sort({ _id: 1 })
@@ -59,7 +58,6 @@ app.get("/api/workouts", (req, res) => {
             res.status(400).json(err);
         });
 });
-
 
 app.get("/api/workouts/range", (req, res) => {
     db.Workout.find({})
@@ -122,93 +120,25 @@ app.put("/api/workouts/:id", (req, res) => {
                 if (err) {
                     res.json(err);
                 } else {
-                    const temp5 = JSON.stringify(result);
                     const founditem = result.find(item => item._id.toString() === req.params.id);
                     dbWorkout.totalDuration = founditem.totalDur;
 
-                    db.Workout.findOneAndUpdate({
-                        _id: mongojs.ObjectId(req.params.id)
-                    }, {
-
-                        $set: {
-                            totalDuration: founditem.totalDur
-                        }
-
-                    }, { new: false })
+                    db.Workout.findOneAndUpdate({ _id: mongojs.ObjectId(req.params.id) },
+                        { $set: { totalDuration: founditem.totalDur } },
+                        { new: true })
                         .then(finalSave => {
-                            const temp8 = JSON.stringify(finalSave);
                             res.json(finalSave);
-
                         })
                         .catch(err => {
                             res.json(err);
                         });
-                    // res.json(dbWorkout);
                 }
             });
-
-            // const temp3 = JSON.stringify(dbWorkout);
-            // const { body } = dbWorkout;
-            // dbWorkout.totalDuration = 8;
-            // res.json(dbWorkout);
         })
         .catch(err => {
             res.json(err);
         });
-
-
-    // exercises : {
-    //     _id: "$_id",
-    //     totalDistance: {
-    //         $sum: "$distance"
-    //     }
-    // }
-
-
-    // db.Workout.updateOne(
-    //     {
-    //         _id: mongojs.ObjectId(req.params.id)
-    //     },
-    //     {
-    //         $set: {
-    //             day: req.body.day,
-
-    //             $push: {
-    //                 exercises: {
-    //                     type: req.body.type,
-    //                     name: req.body.name,
-    //                     duration: req.body.duration,
-    //                     weight: req.body.weight,
-    //                     reps: req.body.reps,
-    //                     set: req.body.sets
-
-    //                 }
-
-    //             }
-    //         }
-    //     },
-    //     (error, data) => {
-    //         if (error) {
-    //             res.send(error);
-    //         } else {
-    //             res.send(data);
-    //         }
-    //     }
-    // );
 });
-
-
-// app.post("/submit", ({body}, res) => {
-//     db.Book.create(body)
-//       .then(({_id}) => db.Library.findOneAndUpdate({}, { $push: { books: _id } }, { new: true }))
-//       .then(dbLibrary => {
-//         res.json(dbLibrary);
-//       })
-//       .catch(err => {
-//         res.json(err);
-//       });
-//   });
-
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
