@@ -23,12 +23,11 @@ You can go to Heroku (see the link, above) and run it that way, or follow the fo
 2) Type "npm i" to install the dependencies
 3) Type "node server.js"
 4) Click on the "New Workout" button
-5) Click the Add Burger button
-6) Select the exercise type from the "Excercise Type" drop down menu
-7) Fill out the fields according to what your workout was
-8) Click "Add Exercise" to immediately save changes, then add more data
-9) Click Complete to save changes, then be taken to the "Fitness Tracker" page, which shows you a summary of your last workout
-10) View a graphical depiction of your workout by clicking the Dashboard button.
+5) Select the exercise type from the "Excercise Type" drop down menu
+6) Fill out the fields according to what your workout was
+7) Click "Add Exercise" to immediately save changes, then add more data
+8) Click Complete to save changes, then be taken to the "Fitness Tracker" page, which shows you a summary of your last workout
+9) View a graphical depiction of your workout by clicking the Dashboard button.
 
 ## How to test this app
 
