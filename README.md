@@ -1,7 +1,7 @@
 # 17_Workout_Tracker
 
 ## Link to trying out the app and Screenshots:
-[Try out the Burger Logger](https://intense-wildwood-42940.herokuapp.com/)
+[Try out the Burger Logger](https://rocky-temple-45102.herokuapp.com/)
 
 ![Before Burger Being Vomited](https://github.com/MarioThompson0010/13_Burger_Logger/blob/main/screenshots/screenshot1.PNG)
 ![After Burger Being Vomited](https://github.com/MarioThompson0010/13_Burger_Logger/blob/main/screenshots/afterBeingDevoured.PNG)
